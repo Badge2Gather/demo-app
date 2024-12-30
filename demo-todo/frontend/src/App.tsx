@@ -1,23 +1,32 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { ThemeProvider, CssBaseline } from '@mui/material';
 import { store } from './features/store';
-import theme from './styles/theme';
+import Layout from './components/layout/Layout';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Todo from './pages/Todo';
+import PrivateRoute from './components/auth/PrivateRoute';
 
 function App() {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Router>
+      <BrowserRouter>
+        <Layout>
           <Routes>
-            <Route path="/login" element={<div>Login Page</div>} />
-            <Route path="/register" element={<div>Register Page</div>} />
-            <Route path="/todos" element={<div>Todo List Page</div>} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/todos"
+              element={
+                <PrivateRoute>
+                  <Todo />
+                </PrivateRoute>
+              }
+            />
             <Route path="/" element={<Navigate to="/todos" replace />} />
           </Routes>
-        </Router>
-      </ThemeProvider>
+        </Layout>
+      </BrowserRouter>
     </Provider>
   );
 }
