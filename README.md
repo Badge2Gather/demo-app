@@ -1,4 +1,4 @@
-# Badge2Gather Demo App 🚀
+# Windsurf를 사용한 GenAI기반 앱 개발 데모 🚀
 
 이 프로젝트는 Windsurf를 사용하여 GenAI 기반으로 소프트웨어를 개발하는 방법을 설명하기 위한 데모 프로젝트입니다. Todo 앱을 예시로 사용하여 GenAI를 활용한 소프트웨어 개발 프로세스를 단계별로 보여줍니다.
 
